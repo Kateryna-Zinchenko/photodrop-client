@@ -35,7 +35,7 @@ const VerificationPhone = () => {
                 <Text>Enter your phone number</Text>
                 <div>
                     <ReactPhoneInput
-                        placeholder='(555) 555-5555'
+                        placeholder='+1 (555) 555-5555'
                         enableSearch={true}
                         disableSearchIcon={true}
                         inputStyle={
