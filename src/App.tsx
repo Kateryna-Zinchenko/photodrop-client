@@ -1,26 +1,34 @@
 import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import { Provider } from 'react-redux';
+import {BrowserRouter, Route, Routes} from "react-router-dom";
+import './styles/globals.css';
+import store from "./store";
+import AddSelfie from "./components/pages/addSelfie/AddSelfie";
+import Profile from "./components/pages/profile/Profile";
+import ChangeName from "./components/pages/changeName/ChangeName";
+import VerificationPhone from "./components/pages/verificationPhone/VerificationPhone";
+import VerificationCode from "./components/pages/verificationCode/VerificationCode";
+import ProtectedRoute from "./components/common/ProtectedRoute";
+
+export type AppDispatch = typeof store.dispatch;
 
 function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+
+    return (
+        <Provider store={store}>
+            <BrowserRouter>
+                <div className="App">
+                    <Routes>
+                        <Route path='/add-selfie' element={<ProtectedRoute><AddSelfie/></ProtectedRoute>}/>
+                        <Route path='/profile' element={<Profile/>}/>
+                        <Route path='/change-name' element={<ChangeName/>}/>
+                        <Route path='/' element={<VerificationPhone/>}/>
+                        <Route path='/code' element={<VerificationCode/>}/>
+                    </Routes>
+                </div>
+            </BrowserRouter>
+        </Provider>
+    );
 }
 
 export default App;

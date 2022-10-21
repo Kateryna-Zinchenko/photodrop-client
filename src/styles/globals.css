@@ -1,0 +1,89 @@
+@import './normalize.css';
+@import './reset.css';
+@import url("https://use.typekit.net/cag3ebp.css");
+
+@font-face {
+    font-family: 'Helvetica LT Std Light';
+    src: url('./fonts/HelveticaLTStd-Light.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+}
+
+.code-inputs {
+    display: flex;
+    justify-content: space-between;
+    margin: 20px auto 0;
+}
+
+.code-inputs input {
+    -webkit-box-shadow: none;
+    -moz-box-shadow: none;
+    box-shadow: none;
+    text-align: center;
+    width: 45px;
+    height: 40px;
+    background: #F4F4F4;
+    border: 1px solid #EEEEEE;
+    border-radius: 10px;
+    padding: 14px 0;
+    font-family: 'futura-pt';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 21px;
+    color: #262626;
+
+}
+.code-inputs input:focus {
+    outline: none;
+}
+
+.react-tel-input .special-label {
+    display: none !important;
+}
+
+.react-tel-input .form-control:hover {
+    border: none;
+}
+
+.react-tel-input .form-control:focus {
+    border-color: #eee;
+    box-shadow: 0 0 0 0 #eee !important;
+}
+
+.react-tel-input .selected-flag {
+    padding: 0 !important;
+}
+
+.react-tel-input .selected-flag .arrow {
+    position: absolute !important;
+    top: 9px !important;
+    margin-top: unset !important;
+    left: 38px !important;
+    width: 13.5px !important;
+    height: 6.5px !important;
+    border-left: unset !important;
+    border-right: unset !important;
+    border-top: unset !important;
+    background-image: url("/public/assets/icons/arrow-down.svg") !important;
+    background-repeat: no-repeat !important;
+}
+
+.react-tel-input .selected-flag .arrow.up {
+    border-top: none;
+    border-bottom: unset !important;
+}
+
+.react-tel-input .country-list .search {
+    padding: 10px !important;
+}
+
+.react-tel-input .country-list .search-box {
+    border-radius: 6px !important;
+    margin-left: 0 !important;
+    padding: 3px 8px 5px;
+    width: 100%;
+    height: 40px;
+}
+
+
