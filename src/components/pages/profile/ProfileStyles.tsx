@@ -3,29 +3,28 @@ import styled from 'styled-components';
 export const Wrapper = styled.div`
   padding: 0 15px;
   margin: 22px auto 0;
-  max-width: 375px;
+  max-width: 450px;
 `;
 
 export const Welcome = styled.div`
-  font-family: 'Termina-Bold',serif;
+  font-family: 'Termina';
   font-style: normal;
   font-weight: 700;
   font-size: 18px;
-  line-height: 22px;
+  line-height: 12px;
+  text-align: center;
   color: #262626;
   margin: 0 auto;
-  width: fit-content;
 `;
 
 export const SelfieCaption = styled.div`
-  font-family: 'Futura PT Medium';
+  font-family: 'futura-pt';
   font-style: normal;
   font-weight: 500;
   font-size: 16px;
-  line-height: 21px;
+  line-height: 14px;
   color: #262626;
   margin: 20px 0 0;
-
 `;
 
 export const SelfieWrapper = styled.div`
@@ -38,6 +37,7 @@ export const SelfieWrapper = styled.div`
 export const Selfie = styled.img`
   width: 100px;
   height: 100px;
+  border-radius: 50%;
 `;
 
 export const Edit = styled.div`
@@ -52,6 +52,7 @@ export const Edit = styled.div`
   display: flex;
   align-items: center;
   justify-content: center;
+  cursor: pointer;
   
   & img {
     width: 17px;
@@ -73,6 +74,7 @@ export const Item = styled.div`
   align-items: center;
   justify-content: space-between;
   margin: 5px 0 0;
+  cursor: pointer;
   
   &:first-child {
     margin: 0;
@@ -80,26 +82,26 @@ export const Item = styled.div`
 `;
 
 export const Title = styled.div`
-  font-family: 'Futura PT';
+  font-family: 'futura-pt';
   font-style: normal;
   font-weight: 500;
   font-size: 14px;
-  line-height: 14px;
+  line-height: 10px;
   display: flex;
   align-items: center;
   color: #262626;
 `;
 
 export const Description = styled.div`
-  font-family: 'Futura PT';
+  font-family: 'futura-pt';
   font-style: normal;
-  font-weight: 300;
+  font-weight: 400;
   font-size: 14px;
-  line-height: 14px;
+  line-height: 11px;
   display: flex;
   align-items: center;
   color: #262626;
-  margin: 6px 0 0;
+  padding: 10px 0 0;
 `;
 
 export const ArrowRight = styled.div`

@@ -21,14 +21,15 @@ export default ChangeName;
 export const Wrapper = styled.div`
   margin: 167px auto 0;
   padding: 0 15px;
+  max-width: 450px;
 `;
 
 export const Title = styled.div`
-  font-family: 'Termina-Bold';
+  font-family: 'Termina';
   font-style: normal;
   font-weight: 700;
   font-size: 18px;
-  line-height: 22px;
+  line-height: 13px;
   text-align: center;
   color: #262626;
 `;
@@ -40,15 +41,12 @@ export const Input = styled.input`
   border: 1px solid #EEEEEE;
   border-radius: 10px;
   margin: 20px auto 0;
-  padding: 14px 0 14px 13px;
+  padding: 15px 0 14px 13px;
   outline: none;
-
-  font-family: 'Futura PT';
+  font-family: 'futura-pt';
   font-style: normal;
-  font-weight: 300;
+  font-weight: 400;
   font-size: 16px;
-  line-height: 21px;
-  display: flex;
-  align-items: center;
+  line-height: 11px;
   color: #262626;
 `;

@@ -1,4 +1,4 @@
-import React, {useState} from 'react';
+import React, {useEffect, useState} from 'react';
 import {Logo, LogoWrapper} from "../../common/Header";
 import Button from "../../common/Button";
 import {Caption, Text, Title, Wrapper} from "./VerificationPhoneStyles";
@@ -9,9 +9,10 @@ import flags from 'country-flag-icons/react/3x2'
 import PhoneInput from 'react-phone-number-input';
 import 'react-phone-number-input/style.css'
 import {AppDispatch} from "../../../App";
-import { useDispatch } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import {verificationCode} from "../../../store/actions/user";
 import { useNavigate } from 'react-router-dom';
+import {State} from "../../../store";
 
 
 const VerificationPhone = () => {
@@ -20,10 +21,18 @@ const VerificationPhone = () => {
     const nav = useNavigate();
     const dispatch = useDispatch<AppDispatch>();
 
+    const isAuth = useSelector((state: State) => state.userReducer.isAuth);
+
     const onCreateClick = async () => {
-        await dispatch(verificationCode(phone));
+        await dispatch(verificationCode(`+${phone}`));
         nav('/code')
     }
+
+    useEffect(() => {
+        if (isAuth) {
+            nav('/add-selfie');
+        }
+    }, [isAuth])
 
     return (
         <main className='verification-phone'>

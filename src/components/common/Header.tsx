@@ -34,6 +34,5 @@ export const ArrowBack = styled.div`
 export const Logo = styled.img`
   width: 125px;
   height: 16px;
-  cursor: pointer;
   margin: 0 auto;
 `;
