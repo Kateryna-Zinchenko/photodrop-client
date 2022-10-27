@@ -10,6 +10,8 @@ export type UserActions = ReturnType<
     | typeof userActions.setAuth
     | typeof userActions.setAlbums
     | typeof userActions.setPhotos
+    | typeof userActions.setUserData
+    | typeof userActions.setAlbumPhotos
     >
 
 export const setAuth =
@@ -59,6 +61,56 @@ export const verificationUser =
             }
         };
 
+export const setAvatar =
+    (contentType: string): AsyncAction =>
+        async (dispatch, _, {mainProtectedApi}) => {
+            try {
+                const data = {contentType: contentType};
+                const response = await mainProtectedApi.setAvatar(data);
+                console.log(response);
+                // @ts-ignore
+                const key = response.key;
+                dispatch(updateAvatar(key));
+                window.location.replace('/dashboard')
+            } catch (e: any) {
+                console.log(e)
+            }
+        };
+
+export const updateAvatar =
+    (key: string): AsyncAction =>
+        async (dispatch, _, {mainProtectedApi}) => {
+            try {
+                const data = {key: key}
+                const response = await mainProtectedApi.updateAvatar(data);
+            } catch (e: any) {
+                console.log(e)
+            }
+        };
+
+export const getUser =
+    (): AsyncAction =>
+        async (dispatch, _, {mainProtectedApi}) => {
+            try {
+                const response = await mainProtectedApi.getUser();
+                dispatch(userActions.setUserData(response));
+                dispatch(setAuth(true));
+            } catch (e: any) {
+                console.log(e)
+            }
+        };
+
+export const changeName =
+    (fullName: string): AsyncAction =>
+        async (dispatch, _, {mainProtectedApi}) => {
+            try {
+                const data = {fullName: fullName}
+                await mainProtectedApi.changeName(data);
+            } catch (e: any) {
+                console.log(e)
+            }
+        };
+
 export const getGallery =
     (): AsyncAction =>
         async (dispatch, _, {mainProtectedApi}) => {
@@ -69,6 +121,18 @@ export const getGallery =
                 // @ts-ignore
                 dispatch(userActions.setPhotos(response.photos));
                 dispatch(setAuth(true))
+            } catch (e: any) {
+                console.log(e)
+            }
+        };
+
+export const getAlbum =
+    (albumId: string): AsyncAction =>
+        async (dispatch, _, {mainProtectedApi}) => {
+            try {
+                const response = await mainProtectedApi.getAlbum(albumId);
+                // @ts-ignore
+                dispatch(userActions.setAlbumPhotos(response.photos));
             } catch (e: any) {
                 console.log(e)
             }

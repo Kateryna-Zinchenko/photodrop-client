@@ -23,11 +23,11 @@ function App() {
                     <Routes>
                         <Route path='/' element={<VerificationPhone/>}/>
                         <Route path='/code' element={<VerificationCode/>}/>
-                        <Route path='/add-selfie' element={<AddSelfie/>}/>
+                        <Route path='/add-selfie' element={<ProtectedRoute><AddSelfie/></ProtectedRoute>}/>
                         <Route path='/dashboard' element={<Dashboard/>}/>
-                        <Route path='/album' element={<Album/>}/>
-                        <Route path='/profile' element={<Profile/>}/>
-                        <Route path='/change-name' element={<ChangeName/>}/>
+                        <Route path='/album' element={<ProtectedRoute><Album/></ProtectedRoute>}/>
+                        <Route path='/profile' element={<ProtectedRoute><Profile/></ProtectedRoute>}/>
+                        <Route path='/change-name' element={<ProtectedRoute><ChangeName/></ProtectedRoute>}/>
                     </Routes>
                 </div>
             </BrowserRouter>

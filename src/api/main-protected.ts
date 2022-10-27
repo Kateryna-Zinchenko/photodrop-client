@@ -15,6 +15,26 @@ export default class MainProtected extends HttpClientProtected {
         return MainProtected.instanceCached;
     };
 
+    public setAvatar = (data: {contentType: string}) =>
+        this.instance.post<any>(`/profile/avatar/s3url`, data);
+
+    public updateAvatar = (data: {key: string}) =>
+        this.instance.put<any>(`/profile/avatar/`, data);
+
+    public getUser = () =>
+        this.instance.get<any>(`/profile`);
+
+    public changeName = (data: {fullName: string}) =>
+        this.instance.put<any>(`/profile/name`, data);
+
     public getGallery = () =>
         this.instance.get<any>(`/gallery`);
+
+    public getAlbum = (albumId: string) => {
+        this.instance.get<any>(`/gallery/album`, {
+            params: {
+                id: albumId
+            }
+        })
+    }
 }

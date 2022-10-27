@@ -1,9 +1,10 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import {ArrowBack, Content, Description, Header, Info, Name, Photo, Photos} from "./AlbumStyles";
 import Button from "../../common/Button";
 import Footer from "../../common/Footer";
 
 const Album = () => {
+
     return (
         <main className='album'>
             <Header>

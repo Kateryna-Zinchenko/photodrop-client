@@ -1,16 +1,46 @@
-import React from 'react';
+import React, {useEffect, useState } from 'react';
 import styled from 'styled-components';
 import Header from "../../common/Header";
 import Button from "../../common/Button";
+import {State} from "../../../store";
+import {useDispatch, useSelector } from 'react-redux';
+import {AppDispatch} from "../../../App";
+import {changeName} from "../../../store/actions/user";
+import { useNavigate } from 'react-router-dom';
 
 const ChangeName = () => {
+    const user = useSelector((state: State) => state.userReducer.user);
+
+    const [name, setName] = useState('');
+
+    const nav = useNavigate();
+    const dispatch = useDispatch<AppDispatch>();
+
+    const onInputChange = (e: React.FormEvent<HTMLInputElement>) => {
+        setName(e.currentTarget.value)
+    }
+
+    const onSaveClick = () => {
+        if (name.length !== 0) {
+            dispatch(changeName(name))
+            nav('/profile')
+        }
+    }
+
+    useEffect(() => {
+        if (user?.fullName === null) setName('')
+        else setName(`${user?.fullName}`)
+    }, [])
+
     return (
         <main className='change-name'>
             <Header/>
             <Wrapper>
                 <Title>Your name</Title>
-                <Input value='Jane Smith'/>
-                <Button>Save</Button>
+                <Input value={name}
+                       onChange={onInputChange}
+                />
+                <Button onClick={onSaveClick}>Save</Button>
             </Wrapper>
         </main>
     );

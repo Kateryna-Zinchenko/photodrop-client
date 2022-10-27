@@ -10,7 +10,7 @@ import PhoneInput from 'react-phone-number-input';
 import 'react-phone-number-input/style.css'
 import {AppDispatch} from "../../../App";
 import { useDispatch, useSelector } from 'react-redux';
-import {verificationCode} from "../../../store/actions/user";
+import {getUser, verificationCode} from "../../../store/actions/user";
 import { useNavigate } from 'react-router-dom';
 import {State} from "../../../store";
 
@@ -22,6 +22,7 @@ const VerificationPhone = () => {
     const dispatch = useDispatch<AppDispatch>();
 
     const isAuth = useSelector((state: State) => state.userReducer.isAuth);
+    const user = useSelector((state: State) => state.userReducer.user);
 
     const onCreateClick = async () => {
         await dispatch(verificationCode(`+${phone}`));
@@ -29,10 +30,11 @@ const VerificationPhone = () => {
     }
 
     useEffect(() => {
+        dispatch(getUser());
         if (isAuth) {
-            nav('/add-selfie');
+            nav('/dashboard');
         }
-    }, [isAuth])
+    }, [user])
 
     return (
         <main className='verification-phone'>

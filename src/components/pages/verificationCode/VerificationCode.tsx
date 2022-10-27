@@ -5,7 +5,7 @@ import {Title, Text, Wrapper, ResendButton} from "./VerificationCodeStyles";
 import InputCode from "./InputCode";
 import {useDispatch, useSelector } from 'react-redux';
 import {State} from "../../../store";
-import {verificationCode, verificationUser} from "../../../store/actions/user";
+import {getUser, verificationCode, verificationUser} from "../../../store/actions/user";
 import {AppDispatch} from "../../../App";
 import { useNavigate } from 'react-router-dom';
 
@@ -16,6 +16,7 @@ const VerificationCode = () => {
 
     const phone = useSelector((state: State) => state.userReducer.phone);
     const isAuth = useSelector((state: State) => state.userReducer.isAuth);
+    const user = useSelector((state: State) => state.userReducer.user);
 
     const nav = useNavigate();
     const dispatch = useDispatch<AppDispatch>();
@@ -29,10 +30,11 @@ const VerificationCode = () => {
     }
 
     useEffect(() => {
-        if (isAuth) {
-            nav('/add-selfie');
+        dispatch(getUser());
+        if (user) {
+            nav('/dashboard');
         }
-    }, [isAuth])
+    }, [])
 
     return (
         <main className='code'>

@@ -67,17 +67,18 @@ export const ProfileInfo = styled.div`
 export const Item = styled.div`
   width: 100%;
   height: 50px;
-  border: 1px solid #CECCB5;
+  border: 1px solid #ece9ce;
   border-radius: 10px;
   padding: 10px 16px 9px 15px;
   display: flex;
   align-items: center;
   justify-content: space-between;
   margin: 5px 0 0;
-  cursor: pointer;
-  
+
   &:first-child {
     margin: 0;
+    cursor: pointer;
+    border: 1px solid #CECCB5;
   }
 `;
 
@@ -92,6 +93,10 @@ export const Title = styled.div`
   color: #262626;
 `;
 
+export const Title2 = styled(Title)`
+  color: #ababab;
+`;
+
 export const Description = styled.div`
   font-family: 'futura-pt';
   font-style: normal;
@@ -102,6 +107,10 @@ export const Description = styled.div`
   align-items: center;
   color: #262626;
   padding: 10px 0 0;
+`;
+
+export const Description2 = styled(Description)`
+  color: #ababab;
 `;
 
 export const ArrowRight = styled.div`

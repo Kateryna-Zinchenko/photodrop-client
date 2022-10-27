@@ -1,7 +1,7 @@
 import React from 'react';
 import {useDispatch, useSelector } from 'react-redux';
 import TokensLocalStorage from "../../utils/local-storage/TokensLocalStorage";
-import {getGallery} from "../../store/actions/user";
+import {getUser} from "../../store/actions/user";
 import {Navigate} from 'react-router-dom';
 
 const ProtectedRoute = ({children}: any) => {
@@ -18,7 +18,7 @@ const ProtectedRoute = ({children}: any) => {
     }
 
     if (!isAuth && TokensLocalStorage.getInstance().getAccessToken()){
-        dispatch(getGallery())
+        dispatch(getUser())
     }
 
     return children
