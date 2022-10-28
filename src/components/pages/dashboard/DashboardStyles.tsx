@@ -30,6 +30,10 @@ export const Avatar = styled.img`
   right: 15px;
   transform: translate(0, -50%);
   cursor: pointer;
+
+  @media (min-width: 1440px) {
+    right: 40px;
+  }
 `;
 
 export const Title = styled.div`

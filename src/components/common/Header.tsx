@@ -19,6 +19,10 @@ export const LogoWrapper = styled.div`
   border-bottom: 1px solid #F1F0EC;
   padding: 20px 0 19px;
   position: relative;
+
+  @media (min-width: 1440px) {
+    padding: 19px 0 19px;
+  }
 `;
 
 export const ArrowBack = styled.div`
@@ -35,4 +39,9 @@ export const Logo = styled.img`
   width: 125px;
   height: 16px;
   margin: 0 auto;
+  
+  @media (min-width: 1440px) {
+    width: 179px;
+    height: 22px;
+  }
 `;
