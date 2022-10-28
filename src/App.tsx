@@ -24,7 +24,7 @@ function App() {
                         <Route path='/' element={<VerificationPhone/>}/>
                         <Route path='/code' element={<VerificationCode/>}/>
                         <Route path='/add-selfie' element={<ProtectedRoute><AddSelfie/></ProtectedRoute>}/>
-                        <Route path='/dashboard' element={<Dashboard/>}/>
+                        <Route path='/dashboard' element={<ProtectedRoute><Dashboard/></ProtectedRoute>}/>
                         <Route path='/album' element={<ProtectedRoute><Album/></ProtectedRoute>}/>
                         <Route path='/profile' element={<ProtectedRoute><Profile/></ProtectedRoute>}/>
                         <Route path='/change-name' element={<ProtectedRoute><ChangeName/></ProtectedRoute>}/>
